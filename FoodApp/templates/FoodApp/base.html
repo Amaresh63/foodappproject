@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Doc</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'FoodApp/style.css' %}">
+</head>
+
+<body>
+    {% csrf_token %}
+    <nav class="navbar navbar-inverse">
+
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="{% url 'FoodApp:index' %}" style='font-weight:bold'>FoodApp</a>
+
+            </div>
+
+            <ul class="nav navbar-nav">
+
+                <li><a href="{% url 'users:profile' %}">Profile</a></li>
+
+                <li>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link" style="color: #adabab;">Logout</button>
+                    </form>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+    {% block body %}
+    {% endblock %}
+
+</body>
+
+</html>

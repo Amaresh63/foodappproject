@@ -1,0 +1,37 @@
+<style>
+    
+    body {
+        font-family: Arial, sans-serif;
+    }
+    form {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #f1f1f1;
+        background: #c5bcbc;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+    form input, form button {   
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+    form button {
+        background: #007BFF;
+        border: 0;
+        color: white;
+        cursor: pointer;
+    }
+    form button:hover {
+        background: #0056b3;
+    }
+</style>
+{% extends "FoodApp/base.html" %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    {{forms}}
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
